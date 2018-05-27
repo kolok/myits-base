@@ -1,0 +1,30 @@
+# My Ideal Technical Stack
+# Owner: Nicolas Oudard
+# Usage: docker-compose up -d
+
+#docker-compose needed
+version: '3'
+
+#docker network should be defined
+networks:
+  default:
+
+services:
+# Here is the postgreSQL engine exposed on 5431
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: toor
+#      PGDATA: /var/lib/postgresql/data/pgdata
+
+# this is an interface to test on port 8081
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
