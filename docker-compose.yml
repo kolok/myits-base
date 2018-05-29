@@ -2,10 +2,11 @@
 # Owner: Nicolas Oudard
 # Usage: docker-compose up -d
 
-#docker-compose needed
+# docker-compose needed
 version: '3'
 
-#docker network should be defined
+# docker network should be defined
+# let's start with one network "default"
 networks:
   default:
 
@@ -14,14 +15,25 @@ services:
   db:
     image: postgres
     restart: always
+# opened port 5432 to be able to connect to the db using a postgresql client direct in a shell
+# Ex: psql -p 5432 -h 127.0.0.1 -U mits-user
+# Else, if the port is not opened you can use the "docker exec" command
+# docker exec -it technicalstackforbtocbusiness_db_1 psql -p 5432 -h 127.0.0.1 -U mits-user
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: toor
-#      PGDATA: /var/lib/postgresql/data/pgdata
+# Use a dedicate user for this pproject with a complex password
+      POSTGRES_USER: mits-user
+      POSTGRES_PASSWORD: neiR3aihWae5of2iiePhi0me
+# PGDATA is the volume where the postgresql data file will be stored
+      PGDATA: /var/lib/postgresql/data/mitsdata
+# mount posgresql volume on your own computer to persist the data
+    volumes:
+        - /var/lib/postgresql/data/mitsdata:/var/lib/postgresql/data/mitsdata:rw
 
-# this is an interface to test on port 8081
+# This is an interface to admininstrate db in your docker envirnment on port 8080
+# To access it, open a browser on the url http://localhost:8080
+# This is only t help developers but will not be used in MITS project
   adminer:
     image: adminer
     restart: always
