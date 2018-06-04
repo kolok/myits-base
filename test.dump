@@ -1,8 +1,0 @@
-drop database mitsdb;
-create database mitsdb;
-
-\c mitsdb;
-
-create table mitstable (id serial primary key, name text not null);
-
-insert into mitstable (name) values ('toto'), ('tata'), ('titi');

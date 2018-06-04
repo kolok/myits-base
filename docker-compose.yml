@@ -29,7 +29,7 @@ services:
       PGDATA: /var/lib/postgresql/data/mitsdata
 # mount posgresql volume on your own computer to persist the data
     volumes:
-        - /var/lib/postgresql/data/mitsdata:/var/lib/postgresql/data/mitsdata:rw
+        - /var/lib/postgresql/data/myitsdata:/var/lib/postgresql/data/myitsdata:rw
 
 # This is an interface to admininstrate db in your docker envirnment on port 8080
 # To access it, open a browser on the url http://localhost:8080
