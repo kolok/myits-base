@@ -8,10 +8,10 @@ $ mkdir -p /var/lib/postgresql/data/myitsdata
 $ docker-compose up -d
 
 # Import the MyITS Database (if needed)
-docker exec -i technicalstackforbtocbusiness_db_1 psql -p 5432 -h 127.0.0.1 -U mits-user < myits.db.sql
+docker exec -i technicalstackforbtocbusiness_db_1 psql -p 5432 -h 127.0.0.1 -U myits-user < myits.db.sql
 
 # Connect to DB 
-docker exec -i technicalstackforbtocbusiness_db_1 psql -p 5432 -h 127.0.0.1 -U mits-user
+docker exec -ti technicalstackforbtocbusiness_db_1 psql -p 5432 -h 127.0.0.1 -U myits-user
 
 # Expore the DB
 $> \c myitsdb;
