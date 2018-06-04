@@ -29,8 +29,8 @@ create table compagnies (
 
 create table compagnies_users_roles (
     id serial primary key,
-    user_id integer not null,
-    compagny_id integer not null,
+    user_id integer REFERENCES users(id),
+    compagny_id integer REFERENCES companies(id),
     role roles default 'admin'
 );
 
