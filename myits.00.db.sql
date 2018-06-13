@@ -40,7 +40,6 @@ create table products (
     compagny_id integer REFERENCES compagnies(id),
     description text default null,
     picture varchar(255) default null,
-    last_connected_at timestamp default null,
     created_at timestamp not null,
     update_at timestamp not null,
     status status default 'active',
