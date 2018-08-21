@@ -13,17 +13,17 @@
     }
   },
   "paths": {
-    "/product/{pId}": {
+    "/product/{Id}": {
       "get": {
         "tags": [
-          "pet"
+          "product"
         ],
         "summary": "Find product by ID",
         "description": "Returns a single product",
         "operationId": "getProductById",
         "parameters": [
           {
-            "name": "pId",
+            "name": "Id",
             "in": "path",
             "description": "ID of product to return",
             "required": true,
@@ -43,6 +43,38 @@
           },
           "404": {
             "description": "Pet not found"
+          }
+        }
+      }
+    },
+    "/product": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Returns a list of product",
+        "description": "Returns a list of product filtered following the parameters",
+        "operationId": "getProductList",
+        "parameters": [
+          {
+            "name": "Status",
+            "in": "query",
+            "description": "status of product return",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
           }
         }
       }
