@@ -18,11 +18,13 @@ services:
 # DOCKER command: docker run -p 80:8080 -e API_URL=http://generator.swagger.io/api/swagger.json swaggerapi/swagger-ui
 # Swagger interface to expose the API specification
   swagger-ui:
-    image: swaggerapi/swagger-ui
+    build: 
+      context: ./myits-swagger
+      dockerfile: Dockerfile.swagger-ui
     restart: always
 # Swagger UI will be available on http://localhost:8003
     ports:
       - 8003:8080
     environment:
-      API_URL: http://generator.swagger.io/api/swagger.json
+        API_URL: http://localhost:8003/api-url/api.json
     container_name: myits-swagger-ui
