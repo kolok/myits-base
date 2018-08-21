@@ -1,9 +1,8 @@
 # technical-stack-for-b-to-c-business
 Try to implement the better stack possible to start a B to C business
 
-README related to DB : postgresql/README.postgresql.md
+README related to DB : myits-db/README.postgresql.md
 README related to Swagger : postgresql/README.postgresql.md
-
 
 ## About DOCKER COMPOSE
 
