@@ -49,6 +49,124 @@
     }
   },
   "definitions": {
+    "User": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "email": {
+          "type": "string",
+          "example": "nicolas@oudard.org"
+        },
+        "name": {
+          "type": "string",
+          "example": "Nicolas Oudard"
+        },
+        "birthdate": {
+          "type": "string",
+          "example": "1979-08-28"
+        },
+        "profile_picture": {
+          "type": "string",
+          "example": "gs://myits-profiles/93849202836.jpeg"
+        },
+        "last_connected_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "created_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "updated_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "status": {
+          "type": "string",
+          "example": "active",
+          "enum": [
+            "active",
+            "inactive",
+            "deleted"
+          ]
+        },
+        "deleted_at": {
+          "type": "integer",
+          "example": 1534882343
+        }
+      }
+    },
+    "Compagny": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string",
+          "example": "MyITS Compagny"
+        },
+        "created_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "updated_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "status": {
+          "type": "string",
+          "example": "active",
+          "enum": [
+            "active",
+            "inactive",
+            "deleted"
+          ]
+        },
+        "deleted_at": {
+          "type": "integer",
+          "example": 1534882343
+        }
+      }
+    },
+    "CompagniesUsersRole": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "compagny_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "role": {
+          "type": "string",
+          "example": "active",
+          "enum": [
+            "admin",
+            "employee"
+          ]
+        }
+      }
+    },
     "Product": {
       "type": "object",
       "required": [
@@ -61,7 +179,61 @@
         },
         "name": {
           "type": "string",
-          "example": "doggie"
+          "example": "MyITS Product"
+        },
+        "picture": {
+          "type": "string",
+          "example": "gs://myits-products/93849202836.jpeg"
+        },
+        "created_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "updated_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "status": {
+          "type": "string",
+          "example": "active",
+          "enum": [
+            "active",
+            "inactive",
+            "deleted"
+          ]
+        },
+        "deleted_at": {
+          "type": "integer",
+          "example": 1534882343
+        }
+      }
+    },
+    "Subscription": {
+      "type": "object",
+      "required": [
+        "product_id",
+        "user_id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "created_at": {
+          "type": "integer",
+          "example": 1534882343
+        },
+        "updated_at": {
+          "type": "integer",
+          "example": 1534882343
         }
       }
     }
