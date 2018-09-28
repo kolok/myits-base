@@ -1,9 +1,6 @@
 # MyITS Swagger
 
-Here is the README related to swagger.
-
-Useful links:
-https://swagger.io/docs/open-source-tools/swagger-editor/
+Here is the README related to swagger usage.
 
 ## Swagger editor
 
@@ -17,7 +14,12 @@ To access to swagger UI :
 
 [[http://localhost:8003/]]
 
+## JSON file to edit and use :
+
+myits-swagger/api.json
+
 
 Useful links:
+https://swagger.io/docs/open-source-tools/swagger-editor/
 Swagger UI configuration : [[https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#core]]
 
