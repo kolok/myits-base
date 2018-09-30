@@ -454,6 +454,252 @@
         }
       }
     },
+    "/product/{Id}/subscriptions": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Returns subscriptions of a product",
+        "description": "Returns subscriptions of a product",
+        "operationId": "getSubscriptionsFromProduct",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of product which subscriptions is requested",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Subscription"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/subscriptions": {
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Returns a list of subscription",
+        "description": "Returns a list of subscription filtered following the parameters",
+        "operationId": "getSubscriptionList",
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "query",
+            "description": "selection via id of product that subscriptions belongs to",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "selection via id of user that subscriptions belongs to",
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Subscription"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid values supplied"
+          }
+        }
+      }
+    },
+    "/subscription": {
+      "post": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Returns the created subscription",
+        "description": "Returns the created subscription",
+        "operationId": "createSubscription",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Subscription object to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Subscription"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid values supplied"
+          }
+        }
+      }
+    },
+    "/subscription/{Id}": {
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Find subscription by ID",
+        "description": "Returns a single subscription",
+        "operationId": "getSubscriptionById",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of subscription to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Subscription not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Delete subscription by ID",
+        "description": "Returns a single deleted subscription",
+        "operationId": "deleteSubscriptionById",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of subscription to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Subscription not found"
+          }
+        }
+      }
+    },
+    "/subscription/{Id}/user": {
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Returns user of a subscription",
+        "description": "Returns user of a Subscription",
+        "operationId": "getUserFromSubscription",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of subscription which user is requested",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Subscription or user not found"
+          }
+        }
+      }
+    },
+    "/subscription/{Id}/product": {
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Returns product of a subscription",
+        "description": "Returns product of a Subscription",
+        "operationId": "getProductFromSubscription",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of subscription which product is requested",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Subscription or product not found"
+          }
+        }
+      }
+    },
     "/users": {
       "get": {
         "tags": [
@@ -646,7 +892,7 @@
           "User"
         ],
         "summary": "Returns roles of a user",
-        "description": "Returns roles of a product",
+        "description": "Returns roles of a user",
         "operationId": "getCompaniesUsersRolesFromUser",
         "parameters": [
           {
@@ -665,6 +911,43 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CompaniesUsersRole"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/{Id}/subscriptions": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Returns subscriptions of a user",
+        "description": "Returns subscriptions of a user",
+        "operationId": "getSubscriptionsFromUser",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of user which subscriptions is requested",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Subscription"
               }
             }
           },
