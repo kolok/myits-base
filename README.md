@@ -2,9 +2,12 @@
 
 Try to implement the better stack possible to start a B to C business
 
+All the project is decribe in a blog, you'll find it here :
+http://blog.oudard.org/index.php/myits-menu/
+
 Project related to MyITS DB : https://github.com/kolok/myits-db
 
-README related to Swagger : myits-swagger/README.swagger.md
+Project related to MyITS Swagger : https://github.com/kolok/myits-swagger
 
 ## About DOCKER COMPOSE
 
@@ -14,5 +17,4 @@ COMPOSE_FILE in .env file
 the docker-compose environment is split as follow :
   * main configuration : docker-compose.yml
   * DB configuration : docker-compose.db.yml
-  * swagger configuration : docker-compose.swagger.yml
 
